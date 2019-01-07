@@ -4,7 +4,7 @@ import Continents from "./data/continents.json";
 export default class Step2 extends Component {
   render() {
 
-    const selectedRegion = (props.continent);  
+    const selectedRegion = (this.props.continent);  
 
         let continentFiltered = Continents.filter((region) => {
           return region.continent === {selectedRegion}
