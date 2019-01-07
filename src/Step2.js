@@ -23,7 +23,6 @@ import Continents from "./data/continents.json";
                    console.log(country.name, country.flag)
                 )
             )});
-
       
     };
     
