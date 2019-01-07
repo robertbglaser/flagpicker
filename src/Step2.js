@@ -4,9 +4,6 @@ import Continents from "./data/continents.json";
 
 
 
-
-
-
   
     const selectedRegion = (props.continent) => {
       return 
