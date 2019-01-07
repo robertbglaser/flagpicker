@@ -1,15 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Continents from "./data/continents.json";
 
+export default class Step2 extends Component {
+  render() {
 
+    const selectedRegion = (props.continent);  
 
-
-
-
-  
-    const selectedRegion = (props.continent) => {
-      return 
         let continentFiltered = Continents.filter((region) => {
           return region.continent === {selectedRegion}
         });
@@ -24,24 +20,10 @@ import Continents from "./data/continents.json";
                 )
             )});
       
-    };
-    
-    
     return (
-      <div className="App">
-       
-          <div className="step2Container"> 
-            <h2> Step 2</h2>
-              <h3> Select a country.</h3>
-              <countryList/>
-              
-          </div>
+      <div>
+        
       </div>
-    );
- 
-
-
-
-
-
-export default Step2;
+    )
+  }
+}
