@@ -34,17 +34,12 @@ export default class Step2 extends Component {
     console.log("before the loop"); 
 
       for (var x in this.state.continentList){
-        console.log("in the loop" + this.state.continentList[x])
          if (this.state.continentList[x] === this.state.selectedRegion){
-              console.log("match")
+              var match = this.state.continentList[x]
          } 
       }
   
-      /*  let continentFiltered = Continents.filter((Asia) => {
-          return region.continent === 'Asia'
-        });
-        
-        console.log("In Step 2, the values are = ",  continentFiltered)
+      /*  l
         
         const countryList = continentFiltered.map((info, i) => {
               return (
