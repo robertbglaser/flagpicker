@@ -17,6 +17,8 @@ export default class Step2 extends Component {
 
   componentDidMount() {
     const regionArr =[];
+    const selectedRegion = (this.state.selectedRegion); 
+    var countryArr = [];
     Continents.map((foo) => {
        return ( 
          regionArr.push(foo.continent)
@@ -24,26 +26,22 @@ export default class Step2 extends Component {
        
     })
     this.setState({continentList:regionArr});
+
+    Continents.forEach(function(region,index){
+      if ( selectedRegion === region.continent){
+           countryArr= region.countries
+      }
+       
+   });
+
+   //console.log(countryArr)
+
+   this.setState({listOCountries: countryArr});
   }
   
   render() {
 
-    const selectedRegion = (this.state.selectedRegion); 
-    var countryArr = [];
-
-    Continents.forEach(function(region,index){
-        if ( selectedRegion === region.continent){
-             countryArr= region.countries
-        }
-         
-     });
-
-     this.setState({listOCountries: countryArr});
-
-    // console.log("after the forEach " , countryArr);
-      
-              
-      
+    console.log("in step 2 render" , this.state.listOCountries)    
     return (
       <div>
 
