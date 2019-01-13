@@ -43,13 +43,14 @@ class App extends Component {
   }
 
   handleClick =(event) =>{
-
+    event.preventDefault();
     console.log("A click event has been heard " );
     this.setState({showList:true});
   }
 
 
   handleClickList =(event) =>{
+    event.preventDefault();
 
     console.log("A click in the list has been heard " + event.target.value );
      
@@ -96,11 +97,12 @@ class App extends Component {
                 <label>{this.state.step1SelectText}</label><br/><br/>
                 <label><strong>{this.state.selectedContinent}</strong></label><br/><br/>
               </div>
-          <div className="step2Container"> 
-            <h2> Step 2</h2>
-              <h3> Now, select a country.</h3>
-                <Step2 selectedContinent={this.state.selectedContinent}/>
-          </div>
+              <div className="step2Container"> 
+              
+                <h2> Step 2</h2>
+                  <h3> Now, select a country.</h3>
+                    <Step2 selectedContinent={this.state.selectedContinent}/>
+              </div>
       </div>
     );
   }

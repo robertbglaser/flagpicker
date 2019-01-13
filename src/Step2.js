@@ -7,6 +7,7 @@ export default class Step2 extends Component {
     this.state ={
       selectedRegion:"Asia",
       continentList: [],
+      listOCountries:[]
 
     }
 
@@ -23,35 +24,36 @@ export default class Step2 extends Component {
        
     })
     this.setState({continentList:regionArr});
-
-   // console.log(regionArr)
   }
   
   render() {
 
-    //const selectedRegion = (this.props.continent); 
+    const selectedRegion = (this.state.selectedRegion); 
     //const  = this.state.region;
-    console.log("before the loop"); 
+   // console.log("before the loop"); 
 
-      for (var x in this.state.continentList){
-         if (this.state.continentList[x] === this.state.selectedRegion){
-              var match = this.state.continentList[x]
-         } 
-      }
-  
-      /*  l
-        
-        const countryList = continentFiltered.map((info, i) => {
-              return (
-                console.log(info.continent),
-                 info.countries.map((country, idx) =>
-                 console.log("in the countries map " + country.name)
-                 
-                )
-            )});  */
+
+      var countryArr = [];
+      Continents.forEach(function(region,index){
+        if ( selectedRegion === region.continent){
+             countryArr= region.countries
+        }
+         
+     });
+
+     this.setState({listOCountries: countryArr});
+
+     console.log("after the forEach " , this.state.listOCountries);
+      
+              
       
     return (
       <div>
+
+        <ul>
+
+
+        </ul>
 
        
         
