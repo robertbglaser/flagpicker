@@ -29,12 +29,9 @@ export default class Step2 extends Component {
   render() {
 
     const selectedRegion = (this.state.selectedRegion); 
-    //const  = this.state.region;
-   // console.log("before the loop"); 
+    var countryArr = [];
 
-
-      var countryArr = [];
-      Continents.forEach(function(region,index){
+    Continents.forEach(function(region,index){
         if ( selectedRegion === region.continent){
              countryArr= region.countries
         }
@@ -43,7 +40,7 @@ export default class Step2 extends Component {
 
      this.setState({listOCountries: countryArr});
 
-     console.log("after the forEach " , this.state.listOCountries);
+    // console.log("after the forEach " , countryArr);
       
               
       
