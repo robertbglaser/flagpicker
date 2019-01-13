@@ -28,36 +28,38 @@ export default class Step2 extends Component {
   }
   handleCheckItem = (e)=>{
 
-    console.log("in handleCheckItem = ", e.target.value)
-    
      const  countrySelected = e.target.value;
       this.setState({countrySelected: countrySelected});
-
-       console.log("%%" + this.state.countrySelected);
   }
   render() {
 
-    console.log("in step 2 render" , this.state.listOCountries)
+    console.log("in step 2 render, state = " , this.state.countrySelected)
 
   
     
     const countries = this.state.listOCountries.map(((foo) => {
       return ( 
         <div key={foo.name} >
+          
             <li className="step2List"> 
             <input type="checkbox" onChange={this.handleCheckItem} value={foo.name}/>{foo.name}
             </li>
-           
+            
         </div>
-      )
-      
+      )    
     }));
 
-   
+    const countryFlag = this.state.listOCountries.map(((flag) => {
+      if(flag.name === this.state.countrySelected){
+        var selectedFlag = flag.flag;
+      }
+      return ( 
+             <li className="step3List"> {selectedFlag}
+             </li>
+      )    
+    }));
 
-    
-    
-
+  
     return (
       <div>
 
@@ -65,10 +67,14 @@ export default class Step2 extends Component {
         {countries}
 
         </ul>
-       
-       
-        
+
+        <div> 
+          <ul>
+            {countryFlag}
+          </ul>
+        </div>
       </div>
+      
     )
   }
 }
