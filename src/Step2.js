@@ -16,7 +16,6 @@ export default class Step2 extends Component {
   };
 
   componentDidMount() {
- //   const regionArr =[];
     const selectedRegion = this.state.selectedRegion; 
     var countryArr = [];
     
@@ -28,7 +27,6 @@ export default class Step2 extends Component {
    });
     this.setState({listOCountries: countryArr});
 
-  //  console.log(this.state.listOCountries)
   }
   handleCheckItem = (e)=>{
    
@@ -37,11 +35,6 @@ export default class Step2 extends Component {
       var prevFlagArr= [];
       prevFlagArr = this.state.arrOfFlags;
 
-      console.log("the value of prevFlagArr = ", prevFlagArr);
-      console.log("the value of arrOfFlags, state = ", this.state.arrOfFlags);
-
-    console.log("in handleCheckItem the value is  ", e.target.value )
-     
      const  countrySelected = e.target.value;
       let continent = this.state.selectedRegion;
 
@@ -53,11 +46,10 @@ export default class Step2 extends Component {
             }})
             
               for( var x in prevFlagArr){
-                console.log("in the last loop")
                 flagArr.push(prevFlagArr[x]);
               }
-        }  //end of the if stmt
-      })  //end of the forEach
+        } 
+      })  
       this.setState({arrOfFlags: flagArr}); 
 
   }
@@ -77,7 +69,7 @@ export default class Step2 extends Component {
       )    
     }));
      let flagString = "";
-    let countryFlag = this.state.arrOfFlags.map(((foo,index) => {
+     this.state.arrOfFlags.map(((foo,index) => {
          flagString = flagString + " " + this.state.arrOfFlags[index];
 
       return ( 
