@@ -10,7 +10,7 @@ export default class Step2 extends Component {
       listOCountries:[],
       countrySelected: "",
       arrOfFlags:[],
-      checked: false,
+      isChecked: false,
 
     }
   };
@@ -31,7 +31,7 @@ export default class Step2 extends Component {
   //  console.log(this.state.listOCountries)
   }
   handleCheckItem = (e)=>{
-    // var flag ="";
+   
 
       var flagArr = [];
     // var flagArr= flagArr || []
@@ -39,27 +39,30 @@ export default class Step2 extends Component {
     console.log("in handleCheckItem the value is  ", e.target.value )
      
      const  countrySelected = e.target.value;
-     console.log(e.target.checked)
-      this.setState({countrySelected: countrySelected});
-
+    /*  this.setState({countrySelected: countrySelected});
+    if (e.target.checked){
+        this.setState({isChecked: !this.state.isChecked});
+    }
+    */
       let continent = this.state.selectedRegion;
 
       Continents.forEach(function(foo, index){
         if (foo.continent === continent){
           
-          console.log("the continents match " , foo.continent)
-          console.log(foo.name)
+       //   console.log("the continents match " , foo.continent)
+       //   console.log(foo.name)
 
           foo.countries.forEach( function(bar,index){
+         //   console.log("in the for each ", bar.name)
             if (bar.name === countrySelected ){
-              flagArr.push(bar.flag)
+              console.log(bar.name, bar.flag)
             }})
           
         }  //end of the if stmt
       })  //end of the forEach
 
-      console.log(flagArr)
-     this.setState({arrOfFlags: flagArr}); 
+    //  console.log(flagArr)
+    // this.setState({arrOfFlags: flagArr}); 
 
   }
   render() {
