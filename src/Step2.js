@@ -34,35 +34,31 @@ export default class Step2 extends Component {
    
 
       var flagArr = [];
-    // var flagArr= flagArr || []
+      var prevFlagArr= [];
+      prevFlagArr = this.state.arrOfFlags;
+
+      console.log("the value of prevFlagArr = ", prevFlagArr);
+      console.log("the value of arrOfFlags, state = ", this.state.arrOfFlags);
 
     console.log("in handleCheckItem the value is  ", e.target.value )
      
      const  countrySelected = e.target.value;
-    /*  this.setState({countrySelected: countrySelected});
-    if (e.target.checked){
-        this.setState({isChecked: !this.state.isChecked});
-    }
-    */
       let continent = this.state.selectedRegion;
 
       Continents.forEach(function(foo, index){
         if (foo.continent === continent){
-          
-       //   console.log("the continents match " , foo.continent)
-       //   console.log(foo.name)
-
           foo.countries.forEach( function(bar,index){
-         //   console.log("in the for each ", bar.name)
             if (bar.name === countrySelected ){
-              console.log(bar.name, bar.flag)
+              flagArr.push(bar.flag);
             }})
-          
+            
+              for( var x in prevFlagArr){
+                console.log("in the last loop")
+                flagArr.push(prevFlagArr[x]);
+              }
         }  //end of the if stmt
       })  //end of the forEach
-
-    //  console.log(flagArr)
-    // this.setState({arrOfFlags: flagArr}); 
+      this.setState({arrOfFlags: flagArr}); 
 
   }
   render() {
@@ -80,17 +76,17 @@ export default class Step2 extends Component {
         </div>
       )    
     }));
+     let flagString = "";
+    let countryFlag = this.state.arrOfFlags.map(((foo,index) => {
+         flagString = flagString + " " + this.state.arrOfFlags[index];
 
-  /*  const countryFlag = this.state.listOCountries.map(((flag) => {
-      if(flag.name === this.state.countrySelected){
-        var selectedFlag = flag.flag;
-      }
       return ( 
-             <li className="step3List"> {selectedFlag}
-             </li>
+             <div key={index} className="step3List"> 
+             <label>{flagString}</label>
+              
+             </div>
       )    
     }));
-*/
   
     return (
       <div>
@@ -101,6 +97,8 @@ export default class Step2 extends Component {
         </ul>
 
         <div> 
+          <label>Step 3</label><br/>
+          {flagString}
          
         </div>
       </div>
