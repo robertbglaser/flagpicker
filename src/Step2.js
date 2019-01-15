@@ -10,7 +10,7 @@ export default class Step2 extends Component {
       listOCountries:[],
       countrySelected: "",
       arrOfFlags:[],
-      isChecked: false,
+      clearFlagArry:[],
 
     }
   };
@@ -53,6 +53,13 @@ export default class Step2 extends Component {
       this.setState({arrOfFlags: flagArr}); 
 
   }
+
+
+  handleClearFlags =() => {
+    this.setState({arrOfFlags: this.state.clearFlagArry}); 
+  }
+
+
   render() {
 
   
@@ -91,8 +98,12 @@ export default class Step2 extends Component {
         <div> 
           <label>Step 3</label><br/>
           {flagString}
-         
+          <br/>
+          <br/>
+          <br/>
         </div>
+
+        <button onClick={this.handleClearFlags}>Clear Flags</button>
       </div>
       
     )
