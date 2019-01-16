@@ -34,3 +34,21 @@
   /*text-decoration: none; */
   list-style: none;
 }
+
+.container{
+  display: flex;
+  align-content: flex-start;
+  
+}
+
+.step1Container{
+  flex-basis:20%;
+}
+
+.step2-container{
+  flex-basis:60%;
+  }
+
+.step3-container{
+  display: flex;
+}

@@ -32,21 +32,26 @@ class App extends Component {
 
   handleChange =(event) =>{
     console.log("handleChange fired")
+    let searchString = event.target.value;
+    console.log("the value that was inputed is :" , searchString);
 
-    this.setState({selectedContinent: event.target.value});
+    //this.setState({selectedContinent: event.target.value})
     this.setState({step1SelectText:"You selected"});
     this.setState({continentSearchResult: event.target.value});
     this.setState({step2Show: true})
   }
   handleInput =(event) =>{
 
-    console.log("inside handleInput " + event.target.value );
-    this.setState({continentSearchResult: event.target.value});
+    console.log("in handleInput")
+    let searchString = event.target.value;
+    console.log("the value that was inputed is :" , searchString);
+
+   // this.setState({continentSearchResult: event.target.value});
   }
 
   handleClick =(event) =>{
-    event.preventDefault();
-    console.log("A click event has been heard " );
+
+    console.log("in handleClick")
     this.setState({showList:true});
   }
 
@@ -84,7 +89,7 @@ class App extends Component {
     if (this.state.showList) 
     var inputlist =this.state.continentList.map((area) => {
       return (<div key={area}>
-                <input  value={area} onClick={this.handleClickList} onChange={this.handleInput}/> 
+                <input  value={area} name="{area}" onClick={this.handleClickList} onChange={this.handleInput}/> 
                 <br/>
               </div>
               )
@@ -95,6 +100,7 @@ class App extends Component {
           <h1 className="title">Flag Picker</h1>
           <p> This app will help you learn flags around the world in <u>3 steps</u>.</p>
         </div>
+        <div className="container"> 
             <div className="step1Container"> 
                 <h2> Step 1</h2>
                 <h3> Select a continent.</h3>
@@ -120,6 +126,8 @@ class App extends Component {
                   {nextStepH3}
                   {nextStep}
                     
+              </div>
+
               </div>
       </div>
     );

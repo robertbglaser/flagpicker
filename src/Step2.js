@@ -62,8 +62,6 @@ export default class Step2 extends Component {
 
   render() {
 
-  
-    
     const countries = this.state.listOCountries.map(((foo) => {
       return ( 
         <div key={foo.name} >
@@ -88,24 +86,30 @@ export default class Step2 extends Component {
     }));
   
     return (
-      <div>
+      <div className="container"> 
+          <div className="step2-container">
 
-        <ul>
-        {countries}
+            <ul>
+            {countries}
 
-        </ul>
+            </ul>
+          </div>
 
-        <div> 
-          <label>Step 3</label><br/>
-          {flagString}
           <br/>
           <br/>
-          <br/>
-        </div>
+          <div className="step3-container"> 
+            <h2>Step 3</h2><br/>
+            {flagString}
+            <br/>
+            <br/>
+            <br/>
+         
 
-        <button onClick={this.handleClearFlags}>Clear Flags</button>
+          
+
+          </div>
+          <button onClick={this.handleClearFlags}>Clear Flags</button>
       </div>
-      
     )
   }
 }
