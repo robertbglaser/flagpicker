@@ -48,15 +48,15 @@ body{
 }
 
 .step1Container{
-  flex-basis:20%;
+  flex-basis:50%;
 }
 
 .step2-container{
-  flex-basis:60%;
+  flex-basis:50;
   }
 
-.step3-container{
-  display: flex;
+.step3List{
+  flex-basis:50%;
 }
 button{
   width:50px;

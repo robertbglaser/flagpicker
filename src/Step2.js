@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Step3 from "./Step3";
 import Continents from "./data/continents.json";
 
 export default class Step2 extends Component {
   constructor(props){
     super(props)
     this.state ={
-      selectedRegion:"Asia",
+     // selectedRegion:"Asia",
       continentList: [],
       listOCountries:[],
       countrySelected: "",
@@ -16,7 +17,8 @@ export default class Step2 extends Component {
   };
 
   componentDidMount() {
-    const selectedRegion = this.state.selectedRegion; 
+  const selectedRegion =  this.props.selectedContinent;
+  console.log("In step 2 ", selectedRegion);
     var countryArr = [];
     
 
@@ -26,6 +28,7 @@ export default class Step2 extends Component {
       }  
    });
     this.setState({listOCountries: countryArr});
+    this.setState({selectedContinent: selectedRegion})
 
   }
   handleCheckItem = (e)=>{
@@ -95,11 +98,8 @@ export default class Step2 extends Component {
             </ul>
           </div>
 
-          <br/>
-          <br/>
-          <div className="step3-container"> 
-            <h2>Step 3</h2><br/>
-            {flagString}
+          
+            <Step3 label={flagString}/>
             <br/>
             <br/>
             <br/>
@@ -108,8 +108,8 @@ export default class Step2 extends Component {
           
 
           </div>
-          <button onClick={this.handleClearFlags}>Clear Flags</button>
-      </div>
+         
+      
     )
   }
 }
