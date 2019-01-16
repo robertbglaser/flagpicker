@@ -13,6 +13,7 @@ class App extends Component {
       step1SelectText:"",
       continentSearchResult:"",
       showList:false,
+      step2Show: false,
     }
 
 
@@ -35,6 +36,7 @@ class App extends Component {
     this.setState({selectedContinent: event.target.value});
     this.setState({step1SelectText:"You selected"});
     this.setState({continentSearchResult: event.target.value});
+    this.setState({step2Show: true})
   }
   handleInput =(event) =>{
 
@@ -57,6 +59,7 @@ class App extends Component {
     this.setState({selectedContinent: event.target.value});
     this.setState({step1SelectText:"You selected"});
     this.setState({continentSearchResult: event.target.value});
+    this.setState({step2Show: true})
  
 
   }
@@ -64,6 +67,20 @@ class App extends Component {
 
 
   render() {
+
+   let nextStepH2 ="",
+       nextStepH3 = "",
+       nextStep ="";
+
+    if (this.state.step2Show){
+      nextStepH2 = (<h2> Step 2</h2>);
+      nextStepH3 =(<h3> Now, select a country.</h3>);
+      nextStep = (<Step2 selectedContinent={this.state.selectedContinent}/>);
+    }
+    else {
+      nextStep = "";
+    }
+
     if (this.state.showList) 
     var inputlist =this.state.continentList.map((area) => {
       return (<div key={area}>
@@ -99,9 +116,10 @@ class App extends Component {
               </div>
               <div className="step2Container"> 
               
-                <h2> Step 2</h2>
-                  <h3> Now, select a country.</h3>
-                    <Step2 selectedContinent={this.state.selectedContinent}/>
+                  {nextStepH2}
+                  {nextStepH3}
+                  {nextStep}
+                    
               </div>
       </div>
     );
