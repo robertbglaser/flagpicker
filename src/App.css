@@ -1,5 +1,11 @@
+
+body{
+  background-color: 	#4682b4;
+}
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -51,4 +57,8 @@
 
 .step3-container{
   display: flex;
+}
+button{
+  width:50px;
+  background-color: blue;
 }
